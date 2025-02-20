@@ -1,0 +1,6 @@
+.env/
+.venv/
+.env
+
+data/*
+*resources.json
