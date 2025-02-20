@@ -4,6 +4,7 @@ from discord.ext import commands
 from discord import app_commands
 import json
 import os
+import sys
 
 load_dotenv()
 
@@ -15,7 +16,7 @@ def load_data(file_path):
 
 def save_data(data, file_path):
     directory = os.path.dirname(file_path)
-    os.makedirs(directory, exist_ok=True)  # Crea la cartella se non esiste
+    os.makedirs(directory, exist_ok=True)
 
     with open(file_path, "w") as f:
         json.dump(data, f, indent=4)
@@ -120,11 +121,11 @@ async def on_ready():
     await bot.add_cog(ResourceLock(bot))
     try:
         commands = await bot.tree.sync()
-        print(f"✅ {len(commands)} Slash commands successfully synchronized!")
+        print(f"[BOT] {len(commands)} Slash commands successfully synchronized!")
     except Exception as e:
-        print(f"❌ Synchronization error: {e}")
+        print(f"[BOT] Synchronization error: {e}", file=sys.stderr)
 
-    print(f'🔹 Logged in as {bot.user}')
+    print(f'[BOT] Logged in as {bot.user}')
 
 TOKEN = os.getenv('APP_TOKEN')
 bot.run(TOKEN)

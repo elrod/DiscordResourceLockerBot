@@ -12,8 +12,8 @@ A Discord bot to manage shared resource locking and unlocking across multiple se
 
 ### 1. Clone the repository
 ```sh
-git clone https://github.com/your-repo/resource-lock-bot.git
-cd resource-lock-bot
+git clone https://github.com/elrod/DiscordResourceLockerBot.git
+cd DiscordResourceLockerBot
 ```
 
 ### 2. Create a virtual environment and install dependencies
